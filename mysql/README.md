@@ -15,5 +15,21 @@
         
         SET GLOBAL max_connect_errors=101;
     ```
++ Drop, add index
+    ```
+        ALTER TABLE `job_lists` ADD FULLTEXT INDEX `name` (`name`);
+        ALTER TABLE `job_lists` DROP INDEX `name`;
+        CREATE FULLTEXT INDEX name_index ON job_lists(name);
+    ```  
++ Connect
+    ``` 
+        mysql -h host -u"duong.vu" -p<pass> dbname -P 3306
+        mysqldump -h host -u"duong.vu" -pDuong@2020! -P 3306 --default-character-set=utf8 --result-file=gotit.sql gotit --verbose (error lock table: --single-transaction)
+        Get-Content gotit.sql | mysql -uroot -P 3308 -p --default_character_set utf8 gotit; (power shell window)
+    ```  
++ For trigger
+    ```sql
+        mysqldump -h localhost -uroot -p --routines --add-drop-trigger --no-create-info --no-data --no-create-db --skip-opt gotit > gotittrigger.sql
+    ```  
 [1]: https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
 [2]: https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/
