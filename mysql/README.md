@@ -29,7 +29,20 @@
     ```  
 + For trigger
     ```sql
-        mysqldump -h localhost -uroot -p --routines --add-drop-trigger --no-create-info --no-data --no-create-db --skip-opt gotit > gotittrigger.sql
+        mysqldump -h localhost -uroot -p --routines --add-drop-trigger --add-drop-trigger --no-create-info --no-data --no-create-db --skip-opt gotit > gotittrigger.sql
+        mysql < triggers.sql  
+        Get-Content gotittrigger.sql | mysql -uroot gotit
     ```  
++ Lock wait time out
+    ```sql
+        transaction-isolation = READ-COMMITTED
+        SELECT @@GLOBAL.transaction_isolation, @@transaction_isolation, @@session.transaction_isolation;
+        SHOW ENGINE INNODB STATUS\G
+```  
+  
+### Problems
++ Export question mark: [Here][3]
+  
 [1]: https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
 [2]: https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/
+[3]: https://confluence.atlassian.com/confkb/characters-appear-as-question-marks-using-mysql-204051027.html
