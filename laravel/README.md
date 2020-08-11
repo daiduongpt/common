@@ -31,5 +31,32 @@
     
 + Publish config: ` php artisan vendor:publish --provider="Encore\Admin\AdminServiceProvider"`    
 
-+ Clear cache: ` php artisan cache:clear && php artisan route:clear && php artisan config:clear && php artisan view:clear
-`
++ Clear cache: ` php artisan cache:clear && php artisan route:clear && php artisan config:clear && php artisan view:clear`
+
++ Excel: 
+    ```
+        # Read file
+        Excel::load($file, function ($reader) use (&$rows) {
+            $rows = $reader->select(['h1', 'h2', 'h3'])->get();
+        });
+  
+        # Download
+        Excel::create('file_excel_name'),
+            function($excel) use($data) {
+                // Set the title
+                $excel->setTitle('Title');
+
+                // Chain the setters
+                $excel->setCreator('DayOne')
+                    ->setCompany('DayOne');
+
+                // Call them separately
+                $excel->setDescription('Desc');
+
+                $excel->sheet('Sheet 1', function($sheet) use ($data) {
+                    $sheet->setFontFamily('Tahoma');
+                    $sheet->fromArray($data);
+                });
+            })->download('xlsx');
+    
+    ```
