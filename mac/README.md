@@ -12,4 +12,8 @@ echo 'export PATH="/usr/local/opt/php@7.3/bin:$PATH"' >> ~/.zshrc
 ```
 Change user and group depend on chown of web folder
 ```
+
++ Some tricks
+Display button css: -webkit-appearance: none;
+Make tag a working right: href must be assigned
       

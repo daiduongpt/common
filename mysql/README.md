@@ -24,7 +24,7 @@
 + Connect
     ``` 
         mysql -h host -u"duong.vu" -p<pass> dbname -P 3306
-        mysqldump -h host -u"duong.vu" -pDuong@2020! -P 3306 --default-character-set=utf8 --result-file=gotit.sql gotit --verbose (error lock table: --single-transaction)
+        mysqldump -h host -u"duong.vu" -pDuong@2020! -P 3306 --default-character-set=utf8 --result-file=gotit.sql gotit --verbose (error lock table: --single-transaction or --lock-tables=false)
         Get-Content gotit.sql | mysql -uroot -P 3308 -p --default_character_set utf8 gotit; (power shell window)
     ```  
 + For trigger
@@ -38,7 +38,12 @@
         transaction-isolation = READ-COMMITTED
         SELECT @@GLOBAL.transaction_isolation, @@transaction_isolation, @@session.transaction_isolation;
         SHOW ENGINE INNODB STATUS\G
-```  
+```
+
++Lock for update (ex: laravel)
+    ```
+        Usually, this prevent nth request same resource must be wait to selected and process => can be overwrite
+    ```
   
 ### Problems
 + Export question mark: [Here][3]
