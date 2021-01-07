@@ -44,6 +44,11 @@
     ```
         Usually, this prevent nth request same resource must be wait to selected and process => can be overwrite
     ```
+
++ Mapping error state
+    ```
+        https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-error-sqlstates.html
+    ```
   
 ### Problems
 + Export question mark: [Here][3]

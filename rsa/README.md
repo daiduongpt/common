@@ -10,7 +10,7 @@
 + EC
     ```
     + List: `openssl ecparam -list_curves`
-    + Generate ec params: `openssl ecparam -name secp112r1 -genkey -out ec_privatekey.pem`
+    + Generate ec params: `openssl ecparam -name secp256k1 -genkey -out ec_privatekey.pem`
     + Generate ec public: `openssl ec -in ec_privatekey.pem -pubout -out ecpubkey.pem`
     ```  
 

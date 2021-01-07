@@ -2,6 +2,7 @@
 
 ### Useful javascript
 + Sheetjs: [Link][1]
++ Copy event: [Link][2]
 
 ###
 + Convert input value
@@ -23,4 +24,5 @@
     ```
 
 [1]: https://docs.sheetjs.com/
+[2]: https://www.sitepoint.com/clipboard-api/
       

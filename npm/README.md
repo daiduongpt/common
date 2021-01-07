@@ -7,6 +7,9 @@
 + React polyfill: [Polyfill][4]
 + I18next: [I18next][5]
 
+### Run npm
++ cross_env: `npm install --global cross-env`
+
 [1]: https://github.com/jquense/yup
 [2]: https://jaredpalmer.com/formik/docs/overview
 [3]: https://reactstrap.github.io/
